@@ -2,6 +2,7 @@
 
 import { Bars3Icon, CodeBracketIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navigation, siteConfig } from "@/data/site";
 import { isConfiguredUrl } from "@/lib/utils";
@@ -10,6 +11,11 @@ import { ThemeToggle } from "./ThemeToggle";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  function isActive(href: string) {
+    return href === "/" ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
+  }
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 16);
@@ -28,7 +34,7 @@ export function Navbar() {
 
         <div className="desktop-nav">
           <div className="nav-links">
-            {navigation.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
+            {navigation.map((item) => <Link aria-current={isActive(item.href) ? "page" : undefined} className={isActive(item.href) ? "active" : undefined} href={item.href} key={item.href}>{item.label}</Link>)}
           </div>
           <div className="nav-actions">
             <ThemeToggle />
@@ -47,7 +53,7 @@ export function Navbar() {
       </nav>
       {isOpen && (
         <div className="mobile-menu" id="mobile-menu">
-          {navigation.map((item) => <Link href={item.href} key={item.href} onClick={() => setIsOpen(false)}>{item.label}</Link>)}
+          {navigation.map((item) => <Link aria-current={isActive(item.href) ? "page" : undefined} className={isActive(item.href) ? "active" : undefined} href={item.href} key={item.href} onClick={() => setIsOpen(false)}>{item.label}</Link>)}
           <a href={siteConfig.resume} onClick={() => setIsOpen(false)}>View Resume</a>
         </div>
       )}

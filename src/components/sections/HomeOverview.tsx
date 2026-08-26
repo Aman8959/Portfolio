@@ -1,0 +1,6 @@
+import { ArrowRightIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { siteConfig } from "@/data/site";
+
+export function HomeOverview() {
+  return <section className="home-overview"><div className="page-shell home-overview-grid"><div><p className="section-eyebrow">Profile / Career objective</p><h2>Building useful software with a clear path from <em>idea to impact.</em></h2><p>I&apos;m Aman Kumar Yadav, an AI/ML and full-stack developer exploring practical ways to combine intelligent systems, data, and thoughtful product design.</p></div><div className="home-contact-card"><p className="section-eyebrow">Get in touch</p><h3>Have an idea worth building?</h3><p>Let&apos;s discuss the problem, the product, and the next practical step.</p><a className="button button-primary" href={`mailto:${siteConfig.email}`}><EnvelopeIcon aria-hidden="true" />Email me</a><a className="home-text-link" href="/contact">Open contact form <ArrowRightIcon aria-hidden="true" /></a></div></div></section>;
+}
