@@ -1,17 +1,15 @@
+import { profile } from "@/data/profile";
+
 export const siteConfig = {
-  name: "Aman Kumar Yadav",
-  role: "AI/ML + Full-Stack Developer",
-  description:
-    "Aman builds practical AI-powered applications, intelligent systems, and scalable web solutions for real-world problems.",
-  url: "https://aman-ku-yadav-portfolio.vercel.app",
-  email: "aman.ku.yadav2001@gmail.com",
-  github: "https://github.com/Aman8959",
-  linkedin: "https://www.linkedin.com/in/aman-kumar-yadav-ds",
-  resume: "/resume.pdf",
-  availability: {
-    enabled: false,
-    label: "Available for freelance projects",
-  },
+  name: profile.name,
+  role: profile.headline,
+  description: profile.bio,
+  url: profile.url,
+  email: profile.email,
+  github: profile.social.github,
+  linkedin: profile.social.linkedin,
+  resume: profile.resume,
+  availability: profile.currentStatus,
 } as const;
 
 export const navigation = [

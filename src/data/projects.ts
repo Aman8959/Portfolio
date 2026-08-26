@@ -6,12 +6,19 @@ export type Project = {
   problem: string;
   features: string[];
   technologies: string[];
-  status: "Concept / In development" | "Project details pending";
+  status: "Concept / In development" | "Completed" | "Client project";
   featured: boolean;
   caseStudy?: boolean;
+  isClientProject?: boolean;
+  githubUrl?: string;
+  liveDemoUrl?: string;
+  image?: string;
+  date?: string;
+  caseStudyReference?: string;
+  metrics?: { label: string; value: string }[];
 };
 
-export const projects: Project[] = [
+const projectEntries: Project[] = [
   // Concept & Featured Projects
   {
     title: "Recall AI",
@@ -36,6 +43,7 @@ export const projects: Project[] = [
     status: "Concept / In development",
     featured: false,
     caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/Portfolio",
   },
   
   // AI/ML & Data Science
@@ -47,8 +55,10 @@ export const projects: Project[] = [
     problem: "Early detection of heart disease requires analyzing complex patient data efficiently.",
     features: ["Classification model", "Patient data analysis", "Risk prediction"],
     technologies: ["Python", "Machine Learning", "Data Analysis", "Scikit-learn"],
-    status: "Project details pending",
+    status: "Completed",
     featured: false,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/Heart-Disease-Prediction-Using-Machine-Learning",
   },
   {
     title: "Uber Trips Analysis",
@@ -58,8 +68,10 @@ export const projects: Project[] = [
     problem: "Understanding ride-sharing patterns requires processing and analyzing large datasets.",
     features: ["Data exploration", "Pattern recognition", "Trend visualization"],
     technologies: ["Python", "Data Analysis", "Machine Learning", "Pandas", "Matplotlib"],
-    status: "Project details pending",
+    status: "Completed",
     featured: false,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/Uber-Trips-Analysis-using-machine-learning-",
   },
   {
     title: "Zomato Data Analysis Using Python",
@@ -69,8 +81,10 @@ export const projects: Project[] = [
     problem: "Restaurant industry stakeholders need actionable insights from complex food delivery data.",
     features: ["Market analysis", "Restaurant insights", "Data visualization"],
     technologies: ["Python", "Data Analysis", "Pandas", "Matplotlib", "Seaborn"],
-    status: "Project details pending",
+    status: "Completed",
     featured: false,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/Zomato-Data-Analysis-Using-Python",
   },
   {
     title: "Spam Email Detection Using NLP & Naive Bayes",
@@ -80,8 +94,10 @@ export const projects: Project[] = [
     problem: "Email systems need intelligent filtering to separate legitimate messages from spam.",
     features: ["NLP processing", "Text classification", "Naive Bayes classifier"],
     technologies: ["Python", "NLP", "Natural Language Processing", "Naive Bayes", "NLTK"],
-    status: "Project details pending",
+    status: "Completed",
     featured: false,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/Spam-Email-Detection-Using-NLP-Naive-Bayes-Algorithm",
   },
   {
     title: "AI-Based Recommendation System",
@@ -91,8 +107,10 @@ export const projects: Project[] = [
     problem: "Users need personalized recommendations based on preferences and behavior patterns.",
     features: ["Collaborative filtering", "Personalization", "Real-time recommendations"],
     technologies: ["Python", "Machine Learning", "Recommendation Systems", "Data Science"],
-    status: "Project details pending",
+    status: "Completed",
     featured: false,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/AI-Recommendation-System",
   },
   {
     title: "Accident Detection System",
@@ -102,8 +120,10 @@ export const projects: Project[] = [
     problem: "Quick accident detection is critical for timely emergency response and traffic management.",
     features: ["Real-time detection", "Video analysis", "Alert system"],
     technologies: ["Python", "Computer Vision", "Deep Learning", "OpenCV", "YOLO"],
-    status: "Project details pending",
+    status: "Completed",
     featured: false,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/AccidentDetectionSystem",
   },
 
   // Full-Stack Development
@@ -115,8 +135,11 @@ export const projects: Project[] = [
     problem: "Support teams struggle with ticket volume, prioritization, and efficient resolution.",
     features: ["Ticket automation", "Intelligent routing", "Priority classification"],
     technologies: ["Full-Stack Development", "AI/ML", "Automation", "Backend Systems"],
-    status: "Project details pending",
+    status: "Client project",
     featured: false,
+    isClientProject: true,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/Support-Ticket-Intelligence-Automation",
   },
   {
     title: "WasteNot - Empowering Rural Commerce",
@@ -126,8 +149,11 @@ export const projects: Project[] = [
     problem: "Rural communities lack efficient channels to monetize resources and reduce waste.",
     features: ["Marketplace", "Community engagement", "Resource optimization"],
     technologies: ["Full-Stack Development", "Web Application", "E-commerce"],
-    status: "Project details pending",
+    status: "Client project",
     featured: false,
+    isClientProject: true,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/wastenot",
   },
   {
     title: "Riddhi Dance Studio",
@@ -137,8 +163,11 @@ export const projects: Project[] = [
     problem: "Dance studios need an online presence for class promotion and student engagement.",
     features: ["Class showcase", "Instructor profiles", "Student portal"],
     technologies: ["Web Development", "Responsive Design", "Frontend Development"],
-    status: "Project details pending",
+    status: "Client project",
     featured: false,
+    isClientProject: true,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/riddhi-dance-studio",
   },
 
   // Concept Projects
@@ -153,6 +182,7 @@ export const projects: Project[] = [
     status: "Concept / In development",
     featured: true,
     caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/AccidentDetectionSystem",
   },
   {
     title: "Localink",
@@ -165,5 +195,11 @@ export const projects: Project[] = [
     status: "Concept / In development",
     featured: false,
     caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/LocalLink",
   },
 ];
+
+export const projects: Project[] = projectEntries.map((project) => ({
+  ...project,
+  caseStudyReference: project.caseStudyReference ?? `content/case-studies/${project.slug}.md`,
+}));

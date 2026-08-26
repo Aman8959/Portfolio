@@ -51,7 +51,8 @@ npm run start    # Start production server
 - `/about` - Profile, career objective, education, skills, and current learning
 - `/projects` - All projects and case-study links
 - `/projects/recall-ai` - Recall AI case study
-- `/projects/accident-detection` - Accident Detection case study
+- `/projects/accident-detection-concept` - AI Road Accident Detection case study
+- `/projects/accident-detection-system` - Accident Detection System case study
 - `/projects/localink` - Localink case study
 - `/projects/portfolio-website` - Portfolio Website case study
 - `/contact` - Contact form
@@ -62,15 +63,18 @@ npm run start    # Start production server
 
 ## Updating Portfolio Content
 
-Most portfolio content is stored in typed data files:
+Portfolio content is separated from the UI:
 
-- `src/data/site.ts` - Name, role, social links, email, and navigation
+- `src/data/profile.ts` - Name, headline, bio, location, contact/social links, status, and About content
+- `src/data/site.ts` - Compatibility mapping for site metadata and navigation
 - `src/data/education.ts` - Education and certification details
 - `src/data/skills.ts` - Skills and technologies
-- `src/data/projects.ts` - Project cards and project status
-- `src/data/caseStudies.ts` - Detailed project case studies
-- `src/data/services.ts` - Services and deliverables
 - `src/data/experience.ts` - Verified professional experience
+- `src/data/projects.ts` - Project cards, categories, optional links, images, dates, metrics, and case-study references
+- `content/case-studies/*.md` - One concise Markdown case study per project, using Overview, Problem, Approach / Solution, Key Features, Tech Stack, Challenges & Solutions, and Results & Learnings
+- `src/data/services.ts` - Services and deliverables
+
+Add project images under `public/images/` and reference them from `projects.ts` with a path such as `/images/project-name.webp`. Optional GitHub URLs, live demos, dates, metrics, and images render only when supplied.
 
 Place the resume at:
 
