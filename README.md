@@ -51,7 +51,6 @@ npm run start    # Start production server
 - `/about` - Profile, career objective, education, skills, and current learning
 - `/projects` - All projects and case-study links
 - `/projects/recall-ai` - Recall AI case study
-- `/projects/accident-detection-concept` - AI Road Accident Detection case study
 - `/projects/accident-detection-system` - Accident Detection System case study
 - `/projects/localink` - Localink case study
 - `/projects/portfolio-website` - Portfolio Website case study

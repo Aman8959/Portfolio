@@ -170,20 +170,6 @@ const projectEntries: Project[] = [
     githubUrl: "https://github.com/Aman8959/riddhi-dance-studio",
   },
 
-  // Concept Projects
-  {
-    title: "AI Road Accident Detection",
-    slug: "accident-detection-concept",
-    category: "Computer Vision System",
-    description: "An AI-assisted emergency-response system concept for detecting potential road accidents from CCTV and video streams.",
-    problem: "Manual monitoring can delay the recognition and routing of potential road incidents.",
-    features: ["Video-stream monitoring", "Vehicle/person detection", "Incident workflow concept"],
-    technologies: ["Computer Vision", "OpenCV", "YOLO", "Deep Learning"],
-    status: "Concept / In development",
-    featured: true,
-    caseStudy: true,
-    githubUrl: "https://github.com/Aman8959/AccidentDetectionSystem",
-  },
   {
     title: "Localink",
     slug: "localink",
