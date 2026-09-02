@@ -187,3 +187,37 @@ export const projects: Project[] = projectEntries.map((project) => ({
   ...project,
   caseStudyReference: project.caseStudyReference ?? `content/case-studies/${project.slug}.md`,
 }));
+
+export function getRelatedProjects(currentProject: Project, limit: number = 2): Project[] {
+  const currentTags = new Set(
+    currentProject.technologies.map((t) => t.toLowerCase().trim())
+  );
+
+  const scored = projects
+    .filter((p) => p.slug !== currentProject.slug)
+    .map((p) => {
+      const sharedTags = p.technologies.filter((t) =>
+        currentTags.has(t.toLowerCase().trim())
+      );
+      const isSameCategory = p.category.toLowerCase() === currentProject.category.toLowerCase();
+      // Calculate score based on shared tags with category relevance
+      const score = sharedTags.length * 2 + (isSameCategory ? 1 : 0);
+      return { project: p, score, sharedCount: sharedTags.length };
+    })
+    .filter((item) => item.sharedCount > 0)
+    .sort((a, b) => b.score - a.score || b.sharedCount - a.sharedCount);
+
+  if (scored.length >= limit) {
+    return scored.slice(0, limit).map((item) => item.project);
+  }
+
+  // If matches are fewer than limit, backfill with related category or case study projects
+  const matchedSlugs = new Set(scored.map((s) => s.project.slug));
+  matchedSlugs.add(currentProject.slug);
+
+  const fallback = projects.filter(
+    (p) => !matchedSlugs.has(p.slug) && (p.category === currentProject.category || p.caseStudy)
+  );
+
+  return [...scored.map((s) => s.project), ...fallback].slice(0, limit);
+}

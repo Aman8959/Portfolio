@@ -100,6 +100,25 @@ h1 { max-width: 760px; margin: 0; font-size: clamp(3rem, 6.2vw, 5.65rem); line-h
 .case-study .case-two-col li { min-height: 60px; font-size: 1rem; line-height: 1.6; }
 .case-study .future-section > div { margin-top: 28px; }
 .case-study .future-section span { padding: 22px; font-size: 1rem; line-height: 1.6; }
+.case-study .journey-section { border-top: 1px solid var(--line); }
+.journey-timeline { display: flex; flex-direction: column; margin-top: 36px; position: relative; }
+.journey-item { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 24px; position: relative; }
+.journey-rail { display: flex; flex-direction: column; align-items: center; position: relative; }
+.journey-node { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); color: var(--accent); display: grid; place-items: center; font-family: "SFMono-Regular", Consolas, monospace; font-size: .78rem; font-weight: 700; box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 25%, transparent); z-index: 2; flex-shrink: 0; }
+.journey-spine { width: 2px; flex: 1; min-height: 32px; background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--accent) 30%, var(--line))); margin: 8px 0; border-radius: 2px; }
+.journey-card { padding: 26px 28px; margin-bottom: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.journey-card:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.06); }
+.journey-card-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.journey-phase-tag { font-family: "SFMono-Regular", Consolas, monospace; font-size: .68rem; font-weight: 700; color: var(--accent); letter-spacing: .06em; text-transform: uppercase; }
+.journey-status-pill { display: inline-flex; align-items: center; font-family: "SFMono-Regular", Consolas, monospace; font-size: .62rem; font-weight: 700; padding: 3px 9px; border-radius: 9999px; border: 1px solid var(--line); line-height: 1; }
+.journey-status-completed { color: #16a34a; background: color-mix(in srgb, #16a34a 12%, var(--surface)); border-color: color-mix(in srgb, #16a34a 30%, transparent); }
+.journey-status-in-progress, .journey-status-iterating { color: #d97706; background: color-mix(in srgb, #d97706 12%, var(--surface)); border-color: color-mix(in srgb, #d97706 30%, transparent); }
+.journey-status-planned { color: var(--muted); background: var(--surface-alt); }
+.journey-title { margin: 0 0 10px; font-size: 1.25rem; font-weight: 700; letter-spacing: -.03em; color: var(--ink); }
+.journey-desc { margin: 0; font-size: .95rem; line-height: 1.68; color: var(--muted); }
+.journey-deliverables { margin-top: 18px; padding-top: 16px; border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent); display: flex; flex-direction: column; gap: 8px; }
+.journey-deliverables-title { font-family: "SFMono-Regular", Consolas, monospace; font-size: .64rem; font-weight: 700; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+.case-study .related-projects-section { border-top: 1px solid var(--line); }
 @media (max-width: 780px) {
 	.case-study .case-hero { padding: 48px 0 40px; }
 	.case-study .case-hero h1 { font-size: clamp(2.125rem, 8vw, 2.375rem); }
@@ -110,4 +129,8 @@ h1 { max-width: 760px; margin: 0; font-size: clamp(3rem, 6.2vw, 5.65rem); line-h
 	.case-study .case-section { padding: 64px 0; }
 	.case-study .architecture-grid article { min-height: 0; padding: 20px; }
 	.case-study .architecture-grid p, .case-study .case-two-col li, .case-study .future-section span { font-size: 1rem; }
+	.journey-item { grid-template-columns: 32px minmax(0, 1fr); gap: 16px; }
+	.journey-node { width: 30px; height: 30px; font-size: .68rem; }
+	.journey-card { padding: 20px 18px; margin-bottom: 22px; }
+	.journey-title { font-size: 1.1rem; }
 }
