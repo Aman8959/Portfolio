@@ -33,6 +33,24 @@ const projectEntries: Project[] = [
     caseStudy: true,
   },
   {
+    title: "EdgeDash",
+    slug: "edgedash",
+    category: "AI & Autonomous Systems",
+    description: "AI-powered career intelligence and automated resume-tailoring platform orchestrated by a 9-agent autonomous engine with live job discovery and zero-hallucination verification.",
+    problem: "Job seekers struggle with generic job searches, manual resume tailoring, and inaccurate AI hallucination tools that fabricate candidate experience lines.",
+    features: [
+      "9-Agent Autonomous Orchestration Pipeline",
+      "Live Public Job Ingestion (Remotive, Arbeitnow APIs)",
+      "Anti-Hallucination Verified ATS Resume Synthesis",
+      "Skill Gap Analysis & Market Analytics Dashboard"
+    ],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Autonomous Agents", "Recharts", "Lucide React"],
+    status: "Completed",
+    featured: true,
+    caseStudy: true,
+    githubUrl: "https://github.com/Aman8959/EdgeDash",
+  },
+  {
     title: "Portfolio Website",
     slug: "portfolio-website",
     category: "Developer Website",
